@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #ecf0f3;
+    font-family: sans-serif;
+    outline: none;
+}
+.parent{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calculator{
+    background-color: #ecf0f3;
+    padding: 15px;
+    border-radius: 30px;
+    box-shadow: inset 5px 5px 12px #ffffff,
+                     5px 5px 12px rgba(0, 0, 0, .16); 
+                     display: grid;
+                     grid-template-columns: repeat(4,70px);
+}
+
+#txt{
+    direction: rtl;
+}
+
+#txt{
+    grid-column: span 4;
+    height: 80px;
+    width: 270px;
+    background-color: #ecf0f3;
+    box-shadow: inset 5px 5px 12px #ffffff,
+                     5px 5px 12px rgba(0, 0, 0, .16);
+                     border: none;
+                     border-radius: 30px;
+                     color: rgb(70, 70, 70);
+                     font-size: 50px;
+                     /* text-align: end; */
+
+                     margin-top: 40px;
+                     margin-bottom: 30px;
+                     padding: 20px;
+
+}
+button{
+    height: 55px;
+    width: 55px;
+    background-color: #ecf0f3;
+    box-shadow: -5px -5px 12px #ffffff,
+                    5px 5px 12px rgba(0, 0, 0, .16);
+                    border: none ;
+                    border-radius: 50%;
+                    margin: 8px;
+                    font-size: 16px;
+    /* text-decoration: none; */
+
+}
+.equal{
+    width: 120px;
+    border-radius: 40px;
+    background-color: #ecf0f3;
+    box-shadow: -5px -5px 12px #ffffff,
+                    5px 5px 12px rgba(0, 0, 0, .16);
+}
+
+
+button:hover{
+    /* background-color: #255778; */
+    box-shadow: inset 0 0 5px #55a4e6,inset 0 0 10px #77b8ec,inset 0 0 5px #5fadec;
+    /* box-shadow:  0 0 5px #55a4e6, 0 0 10px #77b8ec, 0 0 5px #5fadec; */
+}
+
+
+
+
+    </style>
+</head>
+<body>
+        <div class="parent">
+<div class="calculator">
+
+<input id="txt" placeholder="0" type="text">
+<button onclick="cler()"><b>CL</b> </button>
+<button onclick="del()"> <b>Del</b> </button>
+<button onclick="display('%')"><b>%</b> </button>
+<button onclick="display('/')"><b>/</b></button>
+<button onclick="display('7')"> <b>7</b></button>
+<button onclick="display('8')"> <b>8</b> </button>
+<button onclick="display('9')"> <b>9</b> </button>
+<button onclick="display('*')"> <b>*</b></button>
+<button onclick="display('4')"> <b>4</b></button>
+<button onclick="display('5')"> <b>5</b></button>
+<button onclick="display('6')"> <b>6</b></button>
+<button onclick="display('-')"> <b>-</b></button>
+<button onclick="display('1')"> <b>1</b></button>
+<button onclick="display('2')"> <b>2</b></button>
+<button onclick="display('3')"> <b>3</b></button>
+<button onclick="display('+')"> <b>+</b></button>
+<button onclick="display('.')"> <b>.</b></button>
+<button onclick="display('0')"><b>0</b></button>
+<button class="equal" onclick="equalbtn()"><b>=</b></button>
+
+</div>
+
+
+        </div>
+
+<script>
+
+
+
+let txtboxvalu = document.getElementById("txt");
+
+
+
+function display(num){
+    txtboxvalu.value += num;
+}
+function equalbtn(){
+
+
+
+try{
+
+    txtboxvalu.value = eval(txtboxvalu.value);
+
+
+}
+catch(e){
+    alert(e.message)
+}
+
+}
+
+// if(txtboxvalu.value == txtboxvalu.innerText )
+
+// eval(txtboxvalu.value)
+// }
+
+function cler(){
+    txtboxvalu.value = "" ;
+}
+function del(){
+    txtboxvalu.value = txtboxvalu.value.slice(0,-1);
+}
+
+</script>
+
+
+
+</body>
+</html>
